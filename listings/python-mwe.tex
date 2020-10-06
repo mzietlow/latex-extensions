@@ -1,0 +1,48 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage{fontspec}
+
+% Scientific Packages
+\input{python-listing.tex}
+
+% Metadaten %
+\title{Python Listing Example}
+
+\begin{document}
+\makeatletter
+{\LARGE \textbf{\@title}}
+\makeatother
+\vspace{2.5em}
+
+
+\begin{python}[caption={Simple p-value test in Python, assuming an underlying
+    Gaussian distribution for model errors.},label={lst:python-p-test},aboveskip={\bigskipamount}]
+    from math import erf, sqrt
+    def is_anomalous(pred_mse: float, mu_hat: float, sigma_hat: float, conf_thresh: float) -> bool:
+        """
+        Use the Cumulative Distribution Function of a Gaussian to perform p-value test
+        Args:
+            pred_mse: Mean Squared Error between model prediction and true value.
+            mu_hat: Approximated mean of the Gaussian MSE distribution over a validation set.
+            sigma_hat: Approximated standard deviation of the Gaussian MSE distribution over a validation set.
+        """
+        cdf_result = (1/2)*(1 + erf((pred_mse - mu_hat)/(sigma_hat * sqrt(2))))
+        if cdf_result < conf_thresh or cdf_result > 1 - conf_thresh:
+            return True
+        else:
+            return False
+\end{python}
+
+Common spellcheckers like chktex, and extensions like LTeX or cSpell are confused
+by python environments and throw errors like crazy. One day I might be able to
+dig the documentation and add an appropriate \.vscode config file.
+
+\end{document}
+
+
+
+
+
+
