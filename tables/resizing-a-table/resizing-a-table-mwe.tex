@@ -1,0 +1,35 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage{fontspec}
+
+%% This is already included in /preamble/color-graphics-tables.tex %%
+\usepackage{graphicx}
+\usepackage{array,tabularx}
+\usepackage{booktabs}
+%% This is already included in /preamble/color-graphics-tables.tex %%
+
+% Metadaten %
+\title{Resizing a Table (Or Really Anything!)}
+
+\begin{document}
+\makeatletter
+{\LARGE \textbf{\@title}}
+\makeatother
+\vspace{2.5em}
+
+
+\begin{table}[ht]\centering
+    \resizebox{0.8\textwidth}{!}{%
+        \begin{tabular}{ll}
+            Claim       & Vor/Nachteil                                                                                                                                                      \\\midrule
+            Startseite  & \textminus{} Sehr überladen \textminus{} Auch für erfahrene Nutzer unübersichtlich \textminus{} Nicht konfigurierbar \textminus{} Viel Scrollen  \\\addlinespace
+            Durchstöbern& \textminus{} Tag-Ansichten haben ein anders Layout \textminus{} Tags haben keine ersichtliche Sortierung                                           \\
+        \end{tabular}
+    }
+    \caption{Claims-Problemszenarien}\label{tab:claims-problemszenarien}
+\end{table}
+This approach does not require any imports beyond what is already included in
+my template. \textbackslash{}resizebox is taken from the \texttt{graphicx} package
+\end{document}
