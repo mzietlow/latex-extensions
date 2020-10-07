@@ -1,0 +1,38 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage{fontspec}
+\usepackage{hyperref}
+
+%% this is already inside preamble/color-graphics-tables.tex %%
+\usepackage{array,tabularx}
+\usepackage{booktabs}
+%% this is already inside preamble/color-graphics-tables.tex %%
+
+% Graphics, Tables, Colors
+\input{list-inside-tables.tex}
+
+% Metadaten %
+\title{Lists Inside Tables Example}
+
+\begin{document}
+\makeatletter
+{\LARGE \textbf{\@title}}
+\makeatother
+\vspace{2.5em}
+
+
+\begin{table}[ht]\centering
+    \begin{tabular}{ll}
+        Claim           & Vor/Nachteil                      \\\midrule
+        Startseite      & \tabitem{} Test \tabitem{} Test2  \\\addlinespace
+        Showcases       & \tabitem{} Test \tabitem{} Test2  \\\addlinespace
+        Durchstöbern    & \tabitem{} Test \tabitem{} Test2  \\
+    \end{tabular}
+    \caption{Claims-Problemszenarien}\label{tab:claims-problemszenarien}
+\end{table}
+
+For multi-line lists, please see \href{https://github.com/mzietlow/latex-extensions/blob/master/tables/linebreaks-in-tables/linebreaks-in-tables-mwe.tex}{linebreaks-in-tables-mwe.tex}
+
+\end{document}
