@@ -1,0 +1,43 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage{fontspec}
+
+%% this is already inside preamble/color-graphics-tables.tex %%
+\usepackage{array,tabularx}
+\usepackage{booktabs}
+%% this is already inside preamble/color-graphics-tables.tex %%
+
+% Graphics, Tables, Colors
+\input{linebreaks-in-tables.tex}
+
+% Metadaten %
+\title{Linebreaks in Tables Example}
+
+\begin{document}
+\makeatletter
+{\LARGE \textbf{\@title}}
+\makeatother
+\vspace{2.5em}
+
+
+\begin{table}[ht]\centering
+    \begin{tabular}{ll}
+        Claim       & Vor/Nachteil                                                                                                                                                      \\\midrule
+        Startseite  & \makecell[l]{\textminus{} Sehr überladen\\\textminus{} Auch für erfahrene Nutzer unübersichtlich\\\textminus{} Nicht konfigurierbar\\\textminus{} Viel Scrollen}  \\\addlinespace
+        Showcases   & \makecell[l]{+ Inspiration für erfahrene Nutzer\\\textminus{} Inhalte nicht konfigurierbar}                                                                       \\\addlinespace
+        Suchleiste  & \makecell[l]{\textminus{} Suchleiste ist schwer zu finden\\\textminus{} Suchvorschläge werden leicht\\\textit{versehentlich} anvisiert}                           \\\addlinespace
+        Suche       & \makecell[l]{\textminus{} Sehr viele unpassende Suchergebnisse\\\textminus{} Bei manchen Spielen überladen mit DLCs}                                              \\\addlinespace
+        Durchstöbern& \makecell[l]{\textminus{} Tag-Ansichten haben ein anders Layout\\\textminus{} Tags haben keine ersichtliche Sortierung}                                           \\
+    \end{tabular}
+    \caption{Claims-Problemszenarien}\label{tab:claims-problemszenarien}
+\end{table}
+
+\end{document}
+
+
+
+
+
+
