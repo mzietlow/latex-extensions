@@ -1,0 +1,55 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,a4paper,abstract,titlepage]{scrartcl}
+\usepackage{fontspec}
+\usepackage{lipsum}
+\usepackage{hyperref}           % Ensures correct page number in pdf viewer
+\usepackage{pdfpages}           % Provides additional counter-utility
+
+% Metadaten %
+\title{Roman Numbering in Front- and Backmatter}
+
+
+%%% Counter to remember page number %%%
+\newcounter{roman-pagenumber}
+
+\begin{document}
+
+%%%% Frontmatter %%%%
+\pagenumbering{gobble} % No page numbering for title and abstract
+\maketitle
+\begin{abstract}
+    \lipsum{}
+\end{abstract}
+
+%%% TOC and Lists...%%%
+\pagenumbering{roman} % Roman page numbering for TOC and lists
+\tableofcontents
+\setcounter{roman-pagenumber}{\value{page}} % save pagenumber in counter
+
+%%%% Mainmatter %%%%
+\clearpage
+\pagenumbering{arabic} % arabic page numbering for mainmatter
+\section{Beginning of Mainmatter}
+\lipsum{}
+
+
+%%%% Backmatter %%%%
+\clearpage
+\pagenumbering{roman} % Continued roman page numbering backmatter
+\setcounter{page}{\value{roman-pagenumber} + 1} % set page number to counter+1
+
+Here would be the bibliography\clearpage
+
+\appendix
+\section{The appendix}
+\lipsum{}
+
+\end{document}
+
+
+
+
+
+
