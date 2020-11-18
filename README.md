@@ -9,5 +9,6 @@ Every extension consists of three files:
   
 To use an extensions:
   1. place the assosciated package-*.tex file in your preamble folder.
-  2. read the mwe-* file for an mwe of the extension
-  3. adopt the concepts from mwe for your use case.
+  2. /input{...} the package-*.tex file in the preamble of your document.
+  3. read the mwe-* file for an mwe of the extension.
+  4. adopt the concepts from mwe for your use case.
