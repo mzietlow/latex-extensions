@@ -1,0 +1,2 @@
+% New page after each section
+\addtokomafont{section}{\clearpage}

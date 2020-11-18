@@ -1,0 +1,4 @@
+\usepackage{authblk}
+% remove `, ' before `and' 
+\renewcommand\Authand{ and }
+\renewcommand\Authands{ and }
