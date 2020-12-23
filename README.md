@@ -1,3 +1,6 @@
+# Als Basis:
+## entweder: https://github.com/mzietlow/latex-thesis-template
+## oder https://github.com/mzietlow/latex-template
 # latex-extensions
 This is an extension to my LaTeX template. It contains additional package advise with minimal working examples (MWEs)
 
